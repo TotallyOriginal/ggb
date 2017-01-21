@@ -101,7 +101,8 @@ function registerGUIEvents() {
 	initPlayer();
 	start(mainCanvas, base64_decode(smgb));
 		if (GameBoyEmulatorInitialized()) {
-			var volume = prompt("Set the volume here:", "1.0");
+			//var volume = prompt("Set the volume here:", "1.0");
+			var volume = 1.0;
 			if (volume != null && volume.length > 0) {
 				settings[3] = Math.min(Math.max(parseFloat(volume), 0), 1);
 				gameboy.changeVolume();
