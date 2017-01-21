@@ -4607,8 +4607,8 @@ GameBoyCore.prototype.ROMLoad = function () {
 	//Load the first two ROM banks (0x0000 - 0x7FFF) into regular gameboy memory:
 	this.ROM = [];
 	this.usedBootROM = settings[1] && ((!settings[11] && this.GBCBOOTROM.length == 0x800) || (settings[11] && this.GBBOOTROM.length == 0x100));
-	console.log(this.ROMImage);
 	var maxLength = this.ROMImage.length;
+	throw(new Error(this.ROMImage));
 	if (maxLength < 0x4000) {
 		throw(new Error("ROM image size too small."));
 	}
