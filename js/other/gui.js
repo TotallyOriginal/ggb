@@ -95,6 +95,8 @@ function registerGUIEvents() {
 			}
 		}
 	});
+	cout(Math.floor(datauri.length * 3 / 4) + " bytes of data submitted by form (text length of " + datauri.length + ").", 0);
+	initPlayer();
 	start(mainCanvas, base64_decode("w4UB////AADDhQH//////////////////////////////////////4fhXxYAGV4jVtXh6f//////
 /////////8NgAP//////w5UA///////1PgPqACDN8H/w/eoAIPHZ9cXV5c1PIs19G80qHM22/80k
 P81hPc34IyGs/zTws/46IAUhQP/L7q/gQ+BCPOCF4dHB8dn15fBB5gMg+vqlwKcgLPCk4EP63sCn
