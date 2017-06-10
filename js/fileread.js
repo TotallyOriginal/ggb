@@ -110,6 +110,7 @@ function BinFileReader(fileURL){
 		
 		req.onreadystatechange = function() {
 			if(req.readyState == 4 && req.status == 200) {
+				console.log("Done reading file");
 				fileContents = req.responseText;
 
 				fileSize = fileContents.length;
