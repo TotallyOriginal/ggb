@@ -107,22 +107,25 @@ function BinFileReader(fileURL){
 
 	function BinFileReaderImpl(fileURL){
 		var req = new XMLHttpRequest();
+		
+		req.onreadystatechange = function() {
+			if(req.readyState == 4 && req.status == 200) {
+				fileContents = req.responseText;
 
+				fileSize = fileContents.length;
+
+				this.readByteAt = function(i){
+					return fileContents.charCodeAt(i) & 0xff;
+				}
+			}
+			if (req.status != 200) throwException(_exception.FileLoadFailed);
+		};
+		
 		req.open('GET', fileURL, false);
 
 		//XHR binary charset opt by Marcus Granado 2006 [http://mgran.blogspot.com] 
 		req.overrideMimeType('text/plain; charset=x-user-defined');
 		req.send(null);
-
-		if (req.status != 200) throwException(_exception.FileLoadFailed);
-
-		fileContents = req.responseText;
-
-		fileSize = fileContents.length;
-
-		this.readByteAt = function(i){
-			return fileContents.charCodeAt(i) & 0xff;
-		}
 	}
 	if(/msie/i.test(navigator.userAgent) && !/opera/i.test(navigator.userAgent))
 		BinFileReaderImpl_IE.apply(this, [fileURL]);
