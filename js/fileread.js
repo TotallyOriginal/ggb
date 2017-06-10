@@ -115,8 +115,8 @@ function BinFileReader(fileURL){
 		req.overrideMimeType('text/plain; charset=x-user-defined');
 		req.send(null);
 		
-		req.onreadystatechange = function() {
-			if(req.readyState == 4 && req.status == 200) {
+		//req.onreadystatechange = function() {
+			//if(req.readyState == 4 && req.status == 200) {
 				console.log("Done reading file");
 				fileContents = req.responseText;
 
@@ -125,9 +125,9 @@ function BinFileReader(fileURL){
 				this.readByteAt = function(i){
 					return fileContents.charCodeAt(i) & 0xff;
 				}
-			}
+			//}
 			//if (req.status != 200) throwException(_exception.FileLoadFailed);
-		};
+		//};
 	}
 	if(/msie/i.test(navigator.userAgent) && !/opera/i.test(navigator.userAgent))
 		BinFileReaderImpl_IE.apply(this, [fileURL]);
