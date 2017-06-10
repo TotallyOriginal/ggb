@@ -118,7 +118,7 @@ function BinFileReader(fileURL){
 					return fileContents.charCodeAt(i) & 0xff;
 				}
 			}
-			if (req.status != 200) throwException(_exception.FileLoadFailed);
+			//if (req.status != 200) throwException(_exception.FileLoadFailed);
 		};
 		
 		req.open('GET', fileURL, true);
