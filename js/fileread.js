@@ -121,7 +121,7 @@ function BinFileReader(fileURL){
 			if (req.status != 200) throwException(_exception.FileLoadFailed);
 		};
 		
-		req.open('GET', fileURL, false);
+		req.open('GET', fileURL, true);
 
 		//XHR binary charset opt by Marcus Granado 2006 [http://mgran.blogspot.com] 
 		req.overrideMimeType('text/plain; charset=x-user-defined');
