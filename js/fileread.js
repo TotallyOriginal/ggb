@@ -116,6 +116,7 @@ function BinFileReader(fileURL){
 		req.send(null);
 		
 		//req.onreadystatechange = function() {
+			if (req.status != 200) throwException(_exception.FileLoadFailed);
 			//if(req.readyState == 4 && req.status == 200) {
 				console.log("Done reading file");
 				fileContents = req.responseText;
@@ -126,7 +127,7 @@ function BinFileReader(fileURL){
 					return fileContents.charCodeAt(i) & 0xff;
 				}
 			//}
-			//if (req.status != 200) throwException(_exception.FileLoadFailed);
+			//
 		//};
 	}
 	if(/msie/i.test(navigator.userAgent) && !/opera/i.test(navigator.userAgent))
