@@ -109,7 +109,7 @@ function BinFileReader(fileURL){
 	function BinFileReaderImpl(fileURL){
 		var req = new XMLHttpRequest();
 		
-		req.open('GET', fileURL, true);
+		req.open('GET', fileURL, false);
 		
 		//XHR binary charset opt by Marcus Granado 2006 [http://mgran.blogspot.com] 
 		req.overrideMimeType('text/plain; charset=x-user-defined');
