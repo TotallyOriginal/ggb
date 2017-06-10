@@ -106,7 +106,7 @@ p.fps { float:right; text-align:right; }
    <p class="fps"><span id="fps">0</span> fps</p>
   </div>
   <p id="op_load">
-   Load <input type="text" id="file" value="/tests/tetris.gb">
+   Load <input type="text" id="file" value="/tests/ttt.gb">
    Break at <input type="text" id="breakpoint">
   </p>
   <script type="text/javascript">
@@ -123,7 +123,7 @@ jsGB = {
       else
       {
       //  Z80._r.r = (Z80._r.r+1) & 127;
-        Z80._map[MMU.rb(Z80._r.pc++)]();
+        //Z80._map[MMU.rb(Z80._r.pc++)]();
         Z80._r.pc &= 65535;
       }
       if(Z80._r.ime && MMU._ie && MMU._if)
