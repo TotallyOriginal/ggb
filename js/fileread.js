@@ -24,7 +24,7 @@ function BinFileReader(fileURL){
 	}
 
 	this.movePointerTo = function(iTo){
-		console.log(this.getFileSize());
+		//console.log(this.getFileSize());
 		if(iTo < 0) filePointer = 0;
 		else if(iTo > this.getFileSize()) throwException(_exception.EOFReached);
 		else filePointer = iTo;
