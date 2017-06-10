@@ -109,6 +109,8 @@ function BinFileReader(fileURL){
 	function BinFileReaderImpl(fileURL){
 		var req = new XMLHttpRequest();
 		
+		req.open('GET', fileURL, true);
+
 		req.onreadystatechange = function() {
 			if(req.readyState == 4 && req.status == 200) {
 				console.log("Done reading file");
@@ -123,8 +125,6 @@ function BinFileReader(fileURL){
 			//if (req.status != 200) throwException(_exception.FileLoadFailed);
 		};
 		
-		req.open('GET', fileURL, true);
-
 		//XHR binary charset opt by Marcus Granado 2006 [http://mgran.blogspot.com] 
 		req.overrideMimeType('text/plain; charset=x-user-defined');
 		req.send(null);
